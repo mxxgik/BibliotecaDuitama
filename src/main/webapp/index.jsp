@@ -25,7 +25,7 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h2>Welcome to the Library</h2>
+      <h2>Bienvenido a la libreria</h2>
       <p>Find your next book to read!</p>
       <a href="#search" class="button">Search Books</a>
     </div>
