@@ -1,6 +1,7 @@
 
 import java.util.*;
 
+
 public class BookManager {
 
     private static BookManager instance;
@@ -53,6 +54,117 @@ public class BookManager {
 		addBook(new ReferenceBook(nextBookId++, "A Brief History of Time", "Stephen Hawking", false,"Physics", false));  
 
     }
+
+    public ArrayList<Book> getAllBooks(){
+        return books;
+    }
+
+    public ArrayList<Book> getAvailableBooks(){
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (book.isAvailable()) {
+                availableBooks.add(book);
+            }
+        }
+        return availableBooks;
+    }
+
+    public Book getBookById(int id){
+
+        for (Book book : books) {
+            if (book.getId() == id) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public boolean updateBook(Book bookToUpdate){
+
+        for (int index = 0; index < books.size(); index++) {
+            if (books.get(index).getId() == bookToUpdate.getId()) {
+                books.set(index, bookToUpdate);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean deleteBook(int id) {
+		for (Loan loan : loans) {
+			if (loan.getBook().getId() == id && loan.isActive()) {
+				return false;
+			}
+		}
+
+		for (int i = 0; i < books.size(); i++) {
+			if (books.get(i).getId() == id) {
+				books.remove(i);
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public Loan createLoan(int bookId, String borrowerName, int borrowerId, int loanDays) {
+		Book book = getBookById(bookId);
+
+		if (book == null || !book.isAvailable()) {
+			return null;
+		}
+
+		Date loanDate = new Date();
+
+		Date dueDate = new Date(loanDate.getTime() + (loanDays * 24 * 60 * 60 * 1000L));
+
+		Loan loan = new Loan(nextBookId++, book, borrowerName, borrowerId, loanDate, dueDate);
+		loans.add(loan);
+		return loan;
+	}
+
+    public ArrayList<Loan> getAllLoans(){
+        return loans;
+    }
+
+    public Loan getLoanById(int id) {
+		for (Loan loan : loans) {
+			if (loan.getId() == id) {
+				return loan;
+			}
+		}
+		return null;
+	}
+
+    public ArrayList<Loan> getActiveLoans() {
+		ArrayList<Loan> activeLoans = new ArrayList<>();
+		for (Loan loan : loans) {
+			if (loan.isActive()) {
+				activeLoans.add(loan);
+			}
+		}
+		return activeLoans;
+	}
+
+    public boolean returnBook(int id){
+
+        Loan loan = getLoanById(id);
+        
+        if (loan == null || !loan.isActive()) {
+            return false;
+        }
+
+
+        loan.returnBook(new Date());
+        return true;
+    }
+
+    public int getNextBookId(){
+        
+        return nextBookId;
+
+    }
+
     
     
 }

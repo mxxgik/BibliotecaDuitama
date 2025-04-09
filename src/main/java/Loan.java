@@ -12,14 +12,14 @@ public class Loan {
     private Date returnDate;
 
 
-    public Loan(int id, Book book, String borrowerName, int borrowerId, Date borrowDate, Date dueDate, Date returnDate) {
+    public Loan(int id, Book book, String borrowerName, int borrowerId, Date borrowDate, Date dueDate) {
         this.id = id;
         this.book = book;
         this.borrowerName = borrowerName;
         this.borrowerId = borrowerId;
         this.borrowDate = borrowDate;
         this.dueDate = dueDate;
-        this.returnDate = returnDate;
+        this.returnDate = null;
 
         book.setAvailable(false);
     }
