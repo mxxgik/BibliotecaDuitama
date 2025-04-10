@@ -1,0 +1,1 @@
+<%-- here youll find the details of any give loan --%>
