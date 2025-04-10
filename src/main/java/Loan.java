@@ -3,7 +3,8 @@ import java.util.Date;
 
 
 public class Loan {
-    private int id;
+    private int loanId;
+    private int bookId;
     private Book book;
     private String borrowerName;
     private int borrowerId;
@@ -12,8 +13,9 @@ public class Loan {
     private Date returnDate;
 
 
-    public Loan(int id, Book book, String borrowerName, int borrowerId, Date borrowDate, Date dueDate) {
-        this.id = id;
+    public Loan(int loanId, int bookId,Book book, String borrowerName, int borrowerId, Date borrowDate, Date dueDate) {
+        this.loanId = loanId;
+        this.bookId = bookId;
         this.book = book;
         this.borrowerName = borrowerName;
         this.borrowerId = borrowerId;
@@ -25,13 +27,21 @@ public class Loan {
     }
 
 
-    public int getId() {
-        return id;
+    public int getBookId() {
+        return bookId;
+    }
+
+    public int getLoanId() {
+        return loanId;
     }
 
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBookId(int id) {
+        this.bookId = id;
+    }
+
+    public void setLoanId(int id) {
+        this.loanId = id;
     }
 
 
@@ -117,7 +127,8 @@ public class Loan {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Loan{");
-        sb.append("id=").append(id);
+        sb.append("loanId=").append(loanId);
+        sb.append(", bookId=").append(bookId);
         sb.append(", book=").append(book);
         sb.append(", borrowerName=").append(borrowerName);
         sb.append(", borrowerId=").append(borrowerId);
@@ -127,6 +138,10 @@ public class Loan {
         sb.append('}');
         return sb.toString();
     }
+
+    
+
+    
 
 
 

@@ -7,7 +7,7 @@ public class BookManager {
     private static BookManager instance;
     private final ArrayList<Book> books;
     private final ArrayList<Loan> loans;
-    private final int nextLoanId;
+    private int nextLoanId;
     private int nextBookId;
 
 
@@ -118,7 +118,7 @@ public class BookManager {
 
 		Date dueDate = new Date(loanDate.getTime() + (loanDays * 24 * 60 * 60 * 1000L));
 
-		Loan loan = new Loan(nextBookId++, book, borrowerName, borrowerId, loanDate, dueDate);
+		Loan loan = new Loan(nextLoanId++,nextBookId++, book, borrowerName, borrowerId, loanDate, dueDate);
 		loans.add(loan);
 		return loan;
 	}
@@ -129,7 +129,7 @@ public class BookManager {
 
     public Loan getLoanById(int id) {
 		for (Loan loan : loans) {
-			if (loan.getId() == id) {
+			if (loan.getLoanId() == id) {
 				return loan;
 			}
 		}
