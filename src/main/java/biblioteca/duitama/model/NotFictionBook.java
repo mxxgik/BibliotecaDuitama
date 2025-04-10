@@ -1,3 +1,4 @@
+package biblioteca.duitama.model;
 public class NotFictionBook extends Book{
 
     private String themataicArea;

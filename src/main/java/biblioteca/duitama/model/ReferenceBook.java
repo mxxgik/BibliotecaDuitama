@@ -1,3 +1,4 @@
+package biblioteca.duitama.model;
 public class ReferenceBook extends Book {
 
     private String field;
