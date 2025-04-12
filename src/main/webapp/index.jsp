@@ -1,50 +1,129 @@
+
+<jsp:include page="shared/header.jsp" />
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-<link href = "css/styles.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/6cda6591ac.js" crossorigin="anonymous"></script>
-<!DOCTYPE html>
-<html>
-<body class="bg-dark text-light">
-    <%-- <h1 class="text1">The following text is a test to select which font to use project-wide</h1>
-    <h1 class="text1">Downloads</h1>
-    <h1 class="text2">The following text is a test to select which font to use project-wide</h1>
-    <h1 class="text2">Downloads</h1> --%>
-    <%-- <i class="fa-solid fa-house"></i>
-    <i class="fa-solid fa-address-book"></i> --%>
-    <div class="div">
-    <%-- <div class="d-flex justify-content-center align-items-center"> --%>
-    <pre class = "computerascii">                       .,,uod8B8bou,,.
-              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
-         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||
-         !...:!TVBBBRPFT||||||||||!!^^""'   ||||
-         !.......:!?|||||!!^^""'            ||||
-         !.........||||                     ||||
-         !.........||||  ##                 ||||
-         !.........||||                     ||||
-         !.........||||                     ||||
-         !.........||||                     ||||
-         !.........||||                     ||||
-         `.........||||                    ,||||
-          .;.......||||               _.-!!|||||
-   .,uodWBBBBb.....||||       _.-!!|||||||||!:'
-!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....
-!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.
-!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.
-!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^"`;:::       `.
-!........YBBBBBBBBBBRPFT?!::::::::::^''...::::::;         iBBbo.
-`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo.
-  `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^'
-    `........::::::::::::::::;iof688888888888888888888b.     `
-      `......:::::::::;iof688888888888888888888888888888b.
-        `....:::;iof688888888888888888888888888888888899fT!
-          `..::!8888888888888888888888888888888899fT|!^"'
-            `' !!988888888888888888888888899fT|!^"'
-                `!!8888888888888888899fT|!^"'
-                  `!988888888899fT|!^"'
-                    `!9899fT|!^"'
-                      `!^"'
-</pre>
-</div>
-</body>
-</html>
+<%@page import="biblioteca.duitama.model.*"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.google.gson.*"%>
+
+
+     <head>
+     </head>
+     <body>
+          <div class="w-75 p-3" style="background-color: #eee;">
+               <table id="myTable">
+               <thead>
+                    <tr>
+                         <th></th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr>
+                         <td></td>
+                    </tr>
+               </tbody>
+               </table>
+          </div>
+
+          <%
+
+               BookManager manager = BookManager.getInstance();
+               ArrayList<Book> books = manager.getAllBooks();
+               Gson gson = new Gson();
+               
+
+          %>
+          <script type = "text/javascript">
+
+              
+
+               $(document).ready( function () {
+                    let books = new Array(); 
+                    
+                    <% for(Book book : books){ %>
+                         books.push(<%= gson.toJson(book)%>);
+                    <% } %>
+                    $('#myTable').DataTable({
+                         
+                         data: books,
+
+                         columns: [
+                              {
+                                   data: 'id',
+                                   title: 'ID'
+                              },
+                              {
+                                   data: 'name',
+                                   title: 'Nombre'
+                              
+                              },
+                              {
+                                   data: 'type',
+                                   title: 'Tipo'
+
+                              
+                              },
+                              {
+                                   data: 'author',
+                                   title: 'Autor/es'
+                              
+                              },
+                              {
+                                   data: 'available',
+                                   title: '¿Disponible?'
+                              
+                              },
+                              { 
+                                   data: 'field',
+                                   title: 'Campo',
+                                   render: function(data){
+                                        return data == undefined ? "N/A" : data;
+                                   }
+                              },
+                              { 
+                                   data: 'lendable',
+                                   title: '¿Prestable?',
+                                   render: function(data){
+                                        return data == undefined ? "N/A" : data;
+                                   }
+                              },
+                              { 
+                                   data: 'thematicArea',
+                                   title: 'Area Tematica',
+                                   render: function(data){
+                                        return data == undefined ? "N/A" : data;
+                                   }
+                              },
+                              { 
+                                   data: 'targetAudience',
+                                   title: 'Publico Objetivo',
+                                   render: function(data){
+                                        return data == undefined ? "N/A" : data;
+                                   }
+                              },
+                              { 
+                                   data: 'genre',
+                                   title: 'Genero',
+                                   render: function(data){
+                                        return data == undefined ? "N/A" : data;
+                                   }
+                              },
+                              { 
+                                   data: 'awards',
+                                   title: 'Premios',
+                                   render: function(data){
+                                        return data == undefined ? "N/A" : data;
+                                   }
+                              },
+                              
+                         ]
+                         //TODO: separate jsps into footers headers and actual conent.
+
+                    });
+               });
+
+          </script>
+     </body>
+<jsp:include page="shared/footer.jsp" />
+
+
