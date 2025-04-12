@@ -2,6 +2,9 @@ package biblioteca.duitama.model;
 
 import java.util.*;
 
+// import com.google.gson.Gson;
+
+
 
 public class BookManager {
 
@@ -165,6 +168,17 @@ public class BookManager {
         return nextBookId;
 
     }
+
+
+    // public String getJson(int id){
+
+    //     for (Book book : books) {
+    //         if (book.getId() == id) {
+    //             return gs
+    //         }
+    //     }
+
+    // }
 
     
     

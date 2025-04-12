@@ -10,7 +10,7 @@ public class FictionBook extends Book {
 
     public FictionBook(int id, String name, String author, boolean available, String genre, List<String> awards) {
 
-        super(id, name, "fiction", author, available);
+        super(id, name, "Ficcion", author, available);
         this.genre = genre;
         this.awards = awards;
     }

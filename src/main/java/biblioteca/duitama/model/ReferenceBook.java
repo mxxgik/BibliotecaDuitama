@@ -6,7 +6,7 @@ public class ReferenceBook extends Book {
 
     public ReferenceBook(int id, String name, String author, boolean available, String field, boolean lendable) {
 
-        super(id, name, "reference", author, available);
+        super(id, name, "Referencia", author, available);
         this.field = field;
         this.lendable = lendable;
     }

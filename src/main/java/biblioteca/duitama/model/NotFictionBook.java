@@ -1,37 +1,37 @@
 package biblioteca.duitama.model;
 public class NotFictionBook extends Book{
 
-    private String themataicArea;
-    private String targerAudience;
+    private String thematicArea;
+    private String targetAudience;
 
-    public NotFictionBook(int id, String name, String author, boolean available, String themataicArea, String targerAudience) {
+    public NotFictionBook(int id, String name, String author, boolean available, String thematicArea, String targetAudience) {
 
-        super(id, name, "notFiction", author, available);
-        this.themataicArea = themataicArea;
-        this.targerAudience = targerAudience;
+        super(id, name, "No Ficcion", author, available);
+        this.thematicArea = thematicArea;
+        this.targetAudience = targetAudience;
 
         
     }
 
-    public String getThemataicArea() {
-        return themataicArea;
+    public String getthematicArea() {
+        return thematicArea;
     }
 
-    public void setThemataicArea(String themataicArea) {
-        this.themataicArea = themataicArea;
+    public void setthematicArea(String thematicArea) {
+        this.thematicArea = thematicArea;
     }
 
-    public String getTargerAudience() {
-        return targerAudience;
+    public String gettargetAudience() {
+        return targetAudience;
     }
 
-    public void setTargerAudience(String targerAudience) {
-        this.targerAudience = targerAudience;
+    public void settargetAudience(String targetAudience) {
+        this.targetAudience = targetAudience;
     }
 
     @Override
     public String toString() {
-        return "NotFictionBook [themataicArea=" + themataicArea + ", targerAudience=" + targerAudience + "]";
+        return "NotFictionBook [thematicArea=" + thematicArea + ", targetAudience=" + targetAudience + "]";
     }
 
     
