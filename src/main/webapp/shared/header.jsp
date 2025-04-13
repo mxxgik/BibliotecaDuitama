@@ -6,7 +6,7 @@
 
 <script src="https://kit.fontawesome.com/6cda6591ac.js" crossorigin="anonymous"></script>
 
-<link href = "css/styles.css" rel="stylesheet">
+<link href = "css/datatables.css" rel="stylesheet">
 
 <!DOCTYPE html>
 <html data-bs-theme="dark">
