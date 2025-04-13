@@ -24,7 +24,14 @@ public class ReferenceBook extends Book {
     }
 
     public void setLendable(boolean lendable) {
+        if (lendable == false) {
+            setAvailable(false);
+        }else{
+            setAvailable(true);
+        }
+
         this.lendable = lendable;
+
     }
 
     @Override
