@@ -169,6 +169,22 @@ public class BookManager {
 
     }
 
+    public ArrayList<Book> getBooksByType(String type){
+        ArrayList<Book> booksByType = new ArrayList<>();
+
+        for (Book book : books) {
+            if (book.getType().equals(type)) {
+                booksByType.add(book);
+            }
+        }
+
+        if (booksByType.isEmpty()) {
+            return null;
+        }else{
+            return booksByType;
+        }
+    }
+
 
     // public String getJson(int id){
 
