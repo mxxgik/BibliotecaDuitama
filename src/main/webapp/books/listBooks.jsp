@@ -14,12 +14,25 @@
         } 
 
     </style>
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="../index.jsp" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="../books/listBooks.jsp" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="../loans/listLoans.jsp" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      </ul>
+    </header>
 </head>
 
 <body>
     <div class="container">
+            <button class="btn btn-primary m-2" id="showAllBooks"><i class="fa-solid fa-book"></i> Todos </button>
+            <button class="btn btn-primary m-2" id="showFictionBooks"><i class="fa-solid fa-book"></i> Ficcion </button>
+            <button class="btn btn-primary m-2" id="showNotFictionBooks"><i class="fa-solid fa-book"></i> No Ficcion </button>
+            <button class="btn btn-primary m-2" id="showReferenceBooks"><i class="fa-solid fa-book"></i> Referencia </button>
         <div class="row justify-content-center">
-            <div class="table-responsive table-container">
+            <div class="table-responsive table-container" id="allBooksContainer">
                 <table id="allBooksTable" class="table table-dark table-striped table-hover display" style="w-100">
                     <thead>
                         <tr>
@@ -40,7 +53,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table-responsive table-container">
+            <div class="table-responsive table-container" style ="display: none;" id="fictionBooksContainer">
                 <table id="fictionBooksTable" class="table table-dark table-striped table-hover display" style="w-100">
                     <thead>
                         <tr>
@@ -57,7 +70,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table-responsive table-container">
+            <div class="table-responsive table-container" style ="display: none;" id="notFictionBooksContainer">
                 <table id="notFictionBooksTable" class="table table-dark table-striped table-hover display" style="w-100">
                     <thead>
                         <tr>
@@ -75,7 +88,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table-responsive table-container">
+            <div class="table-responsive table-container" style ="display: none;" id="referenceBooksContainer">
                 <table id="referenceBooksTable" class="table table-dark table-striped table-hover display" style="w-100">
                     <thead>
                         <tr>
@@ -127,9 +140,10 @@
                             { data: 'targetAudience', title: 'Público Objetivo', render: (data) => data || 'N/A' },
                             { data: 'genre', title: 'Género', render: (data) => data || 'N/A' },
                             { data: 'awards', title: 'Premios', render: (data) => data || 'N/A' },
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-sm btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-sm btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
+                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
                         ]
+        
                     });
                     $('#fictionBooksTable').DataTable({
                         data: fictionBooks,
@@ -141,8 +155,8 @@
                             { data: 'available', title: '¿Disponible?', render: (data) => data ? 'Sí' : 'No' },
                             { data: 'genre', title: 'Género' },
                             { data: 'awards', title: 'Premios' },
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-sm btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-sm btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
+                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
                         ]
                     });
                     $('#notFictionBooksTable').DataTable({
@@ -155,8 +169,8 @@
                             { data: 'available', title: '¿Disponible?', render: (data) => data ? 'Sí' : 'No' },
                             { data: 'thematicArea', title: 'Área Temática' },
                             { data: 'targetAudience', title: 'Público Objetivo' },
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-sm btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-sm btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
+                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
                         ]
                     });
                     $('#referenceBooksTable').DataTable({
@@ -169,10 +183,36 @@
                             { data: 'available', title: '¿Disponible?', render: (data) => data ? 'Sí' : 'No' },
                             { data: 'field', title: 'Campo', },
                             { data: 'lendable', title: '¿Prestable?', render: (data) => data ? 'Sí' : 'No' },
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-sm btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-sm btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
+                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
                         ]
                     });
+
+                    $("#showAllBooks").on("click", () => {
+                        $("#allBooksContainer").show();
+                        $("#fictionBooksContainer").hide();
+                        $("#notFictionBooksContainer").hide();
+                        $("#referenceBooksContainer").hide();
+                    })
+                    $("#showFictionBooks").on("click", () => {
+                        $("#allBooksContainer").hide();
+                        $("#fictionBooksContainer").show();
+                        $("#notFictionBooksContainer").hide();
+                        $("#referenceBooksContainer").hide();
+                    })
+                    $("#showNotFictionBooks").on("click", () => {
+                        $("#allBooksContainer").hide();
+                        $("#fictionBooksContainer").hide();
+                        $("#notFictionBooksContainer").show();
+                        $("#referenceBooksContainer").hide();
+                    })
+                    $("#showReferenceBooks").on("click", () => {
+                        $("#allBooksContainer").hide();
+                        $("#fictionBooksContainer").hide();
+                        $("#notFictionBooksContainer").hide();
+                        $("#referenceBooksContainer").show();
+                    })
+
                 });
             </script>
         </div>
