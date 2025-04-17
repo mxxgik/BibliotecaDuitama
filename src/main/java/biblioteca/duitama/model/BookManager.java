@@ -55,7 +55,12 @@ public class BookManager {
 		addBook(new ReferenceBook(nextBookId++, "Principles of Economics", "N. Gregory Mankiw", true,"Economics", true));
 		addBook(new ReferenceBook(nextBookId++, "Introduction to Algorithms", "Thomas H. Cormen", false,"Computer Science", true));
 		addBook(new ReferenceBook(nextBookId++, "The Selfish Gene", "Richard Dawkins", false,"Evolutionary Biology", false));  
-		addBook(new ReferenceBook(nextBookId++, "A Brief History of Time", "Stephen Hawking", false,"Physics", false));  
+		addBook(new ReferenceBook(nextBookId++, "A Brief History of Time", "Stephen Hawking", false,"Physics", false));
+        
+        createLoan(4, "Andres Chaparro", 1, 20);
+        createLoan(6, "Pepe Botellas", 2, 5);
+        createLoan(8, "Juan pedraza", 6, 10);
+        createLoan(10, "Pepito Nossa", 12, 13);
 
     }
 
@@ -146,6 +151,7 @@ public class BookManager {
 			if (loan.isActive()) {
 				activeLoans.add(loan);
 			}
+
 		}
 		return activeLoans;
 	}
