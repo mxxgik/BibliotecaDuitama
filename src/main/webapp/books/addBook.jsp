@@ -9,7 +9,7 @@
 <head>
     <style>
         body {
-            background-color: #121212;
+            background-color: #404048;
             color: #e0e0e0;
             font-family: 'Segoe UI', sans-serif;
             padding: 2rem;
