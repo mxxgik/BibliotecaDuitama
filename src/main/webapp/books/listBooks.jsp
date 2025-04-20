@@ -16,11 +16,9 @@
     </style>
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="../index.jsp" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="../books/listBooks.jsp" class="nav-link">Features</a></li>
-        <li class="nav-item"><a href="../loans/listLoans.jsp" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="../index.jsp" class="nav-link" >Inicio</a></li>
+        <li class="nav-item"><a href="../books/listBooks.jsp" class="nav-link active" aria-current="page">Libros</a></li>
+        <li class="nav-item"><a href="../loans/listLoans.jsp" class="nav-link">Prestamos</a></li>
       </ul>
     </header>
 </head>
