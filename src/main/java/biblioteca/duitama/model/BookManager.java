@@ -1,8 +1,8 @@
 package biblioteca.duitama.model;
 
-import java.util.*;
-
-// import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 
 
 
@@ -57,9 +57,9 @@ public class BookManager {
 		addBook(new ReferenceBook(nextBookId++, "The Selfish Gene", "Richard Dawkins", false,"Evolutionary Biology", false));  
 		addBook(new ReferenceBook(nextBookId++, "A Brief History of Time", "Stephen Hawking", false,"Physics", false));
         
-        createLoan(4, "Andres Chaparro", 1, 20);
+        createLoan(3, "Andres Chaparro", 1, 20);
         createLoan(6, "Pepe Botellas", 2, 5);
-        createLoan(8, "Juan pedraza", 6, 10);
+        createLoan(7, "Juan pedraza", 6, 10);
         createLoan(10, "Pepito Nossa", 12, 13);
 
     }
@@ -127,7 +127,7 @@ public class BookManager {
 
 		Date dueDate = new Date(loanDate.getTime() + (loanDays * 24 * 60 * 60 * 1000L));
 
-		Loan loan = new Loan(nextLoanId++,nextBookId++, book, borrowerName, borrowerId, loanDate, dueDate);
+		Loan loan = new Loan(nextLoanId++,bookId , book, borrowerName, borrowerId, loanDate, dueDate);
 		loans.add(loan);
 		return loan;
 	}
