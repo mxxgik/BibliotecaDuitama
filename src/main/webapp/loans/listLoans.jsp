@@ -47,8 +47,8 @@
                             { data: 'borrowerName', title: 'Prestamista' },
                             { data: 'borrowDate', title: 'Fecha de prestamo'},
                             { data: 'dueDate', title: 'Fecha de entrega'},
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<a class="btn btn-m btn-primary m-2 edit-btn" href= "loanDetails.jsp?dataId=${row.loanId}"><i class="fa-solid fa-pen-to-square"></i></a> 
+                                                                                                <a class="btn btn-m btn-danger m-2 edit-btn" href= "loanReturnConfirmation.jsp?dataId=${row.loanId}"><i class="fa-solid fa-trash"></i></a>` }
                         ]
         
                     });

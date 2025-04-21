@@ -121,8 +121,8 @@
                             { data: 'targetAudience', title: 'Público Objetivo', render: (data) => data || 'N/A' },
                             { data: 'genre', title: 'Género', render: (data) => data || 'N/A' },
                             { data: 'awards', title: 'Premios', render: (data) => data || 'N/A' },
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<a class="btn btn-m btn-primary m-2 edit-btn editBookBtn" href="editBook.jsp?dataId=${row.id}"><i class="fa-solid fa-pen-to-square"></i></a>  
+                                                                                                <a class="btn btn-m btn-danger m-2 edit-btn deleteBookBtn" href="bookDeleteConfirmation.jsp?dataId=${row.id}"><i class="fa-solid fa-trash"></i></a>` }
                         ]
         
                     });
@@ -136,8 +136,8 @@
                             { data: 'available', title: '¿Disponible?', render: (data) => data ? 'Sí' : 'No' },
                             { data: 'genre', title: 'Género' },
                             { data: 'awards', title: 'Premios' },
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<a class="btn btn-m btn-primary m-2 edit-btn editBookBtn" href="editBook.jsp?dataId=${row.id}"><i class="fa-solid fa-pen-to-square"></i></a>  
+                                                                                                <a class="btn btn-m btn-danger m-2 edit-btn deleteBookBtn" href="bookDeleteConfirmation.jsp?dataId=${row.id}"><i class="fa-solid fa-trash"></i></a>` }
                         ]
                     });
                     $('#notFictionBooksTable').DataTable({
@@ -150,8 +150,8 @@
                             { data: 'available', title: '¿Disponible?', render: (data) => data ? 'Sí' : 'No' },
                             { data: 'thematicArea', title: 'Área Temática' },
                             { data: 'targetAudience', title: 'Público Objetivo' },
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<a class="btn btn-m btn-primary m-2 edit-btn editBookBtn" href="editBook.jsp?dataId=${row.id}"><i class="fa-solid fa-pen-to-square"></i></a>  
+                                                                                                <a class="btn btn-m btn-danger m-2 edit-btn deleteBookBtn" href="bookDeleteConfirmation.jsp?dataId=${row.id}"><i class="fa-solid fa-trash"></i></a>` }
                         ]
                     });
                     $('#referenceBooksTable').DataTable({
@@ -164,8 +164,8 @@
                             { data: 'available', title: '¿Disponible?', render: (data) => data ? 'Sí' : 'No' },
                             { data: 'field', title: 'Campo', },
                             { data: 'lendable', title: '¿Prestable?', render: (data) => data ? 'Sí' : 'No' },
-                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<button class="btn btn-m btn-primary m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-pen-to-square"></i></button> 
-                                                                                                <button class="btn btn-m btn-danger m-2 edit-btn" data-id="${row.id}"><i class="fa-solid fa-trash"></i></button>` }
+                            { data: null, title: 'Acciones', orderable: false, render: (row) =>`<a class="btn btn-m btn-primary m-2 edit-btn editBookBtn" href="editBook.jsp?dataId=${row.id}"><i class="fa-solid fa-pen-to-square"></i></a> 
+                                                                                                <a class="btn btn-m btn-danger m-2 edit-btn deleteBookBtn" href="bookDeleteConfirmation.jsp?dataId=${row.id}"><i class="fa-solid fa-trash"></i></a>` }
                         ]
                     });
 
