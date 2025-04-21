@@ -3,5 +3,5 @@
 }
 
 .gap-4 {
-    gap: 1.5rem; /* Add horizontal space between links (Bootstrap doesn't have gap-4 by default for flex) */
+    gap: 1.5rem;
 }

@@ -1,5 +1,5 @@
 .btn-primary {
-    background-color: #6b7c94 !important; /* lighter, more blueish, cool-toned */
+    background-color: #6b7c94 !important; 
     border-color: #6b7c94 !important;
     color: #ffffff !important;
 }
@@ -9,13 +9,12 @@
 .btn-primary:active,
 .btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
-    background-color: #7f91ab !important; /* lighter blue accent */
+    background-color: #7f91ab !important;
     border-color: #7f91ab !important;
     color: #ffffff !important;
     box-shadow: none !important;
 }
 
-/* Override Bootstrap .btn-danger */
 .btn-danger {
     background-color: #501820 !important;
     border-color: #501820 !important;
