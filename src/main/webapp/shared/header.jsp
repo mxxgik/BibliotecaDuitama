@@ -19,6 +19,11 @@
         margin: 0;
         padding: 0;
     }
+
+    body {
+        background-color: #404048;
+        color: #e0e0e0;
+    }
 </style>
 
 <!DOCTYPE html>
