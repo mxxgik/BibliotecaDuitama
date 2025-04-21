@@ -6,7 +6,20 @@
 
 <script src="https://kit.fontawesome.com/6cda6591ac.js" crossorigin="anonymous"></script>
 
-<link href = "css/datatables.css" rel="stylesheet">
+<link href = "../css/datatables.css" rel="stylesheet">
+<link href = "../css/buttonOverrides.css" rel="stylesheet">
+<link href = "../css/footer.css" rel="stylesheet">
+<link href = "../css/header.css" rel="stylesheet">
+
+
+<style>
+    html {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
 
 <!DOCTYPE html>
 <html data-bs-theme="dark">
