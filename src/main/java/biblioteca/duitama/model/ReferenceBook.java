@@ -9,6 +9,13 @@ public class ReferenceBook extends Book {
         super(id, name, "Referencia", author, available);
         this.field = field;
         this.lendable = lendable;
+
+        if (!lendable) {
+            setAvailable(false);
+        } else {
+            setAvailable(true);
+        }
+        
     }
 
     public String getField() {
