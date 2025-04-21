@@ -3,7 +3,9 @@
 <jsp:include page="../shared/header.jsp" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="biblioteca.duitama.model.*"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Arrays"%>
 <%@page import="com.google.gson.*"%>
 
 <jsp:include page="../shared/navbar.jsp" />
@@ -25,11 +27,43 @@
 
 </head>
 
+<%
 
+  if(request.getMethod().equals("POST")){
+    BookManager manager = BookManager.getInstance();
+    String name = request.getParameter("name");
+    String author = request.getParameter("author");
+    String type = request.getParameter("type");
+    Boolean available = Boolean.parseBoolean(request.getParameter("available"));
+    Book newBook = null;
+    int id = manager.getNextBookId();
+
+    if(type.equals("fiction")){
+        String genre = request.getParameter("genre");
+        List<String> awards = new ArrayList<>(Arrays.asList(request.getParameter("awards").split("\\s*,\\s*"))); 
+        newBook = new FictionBook(id, name, author, available, genre, awards);
+    }else if(type.equals("notFiction")){
+        String thematicArea = request.getParameter("thematicArea");
+        String targetAudience = request.getParameter("targetAudience");
+        newBook = new NotFictionBook(id, name, author, available, thematicArea, targetAudience);
+    }else if(type.equals("reference")){
+        String field = request.getParameter("field");
+        boolean lendable = request.getParameter("lendable") != null;
+        newBook = new ReferenceBook(id, name, author, available, field, lendable);
+    }
+    if(newBook != null){
+        manager.addBook(newBook);
+        response.sendRedirect("listBooks.jsp");
+        return;
+    }
+  }
+
+
+  %>
 
 <body>
     <div class = "container">
-        <form id="bookForm">
+        <form id="bookForm" method="post" action="addBook.jsp">
             <div class="mb-3">
               <label for="bookName" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="bookName" name="name" required>
@@ -49,7 +83,7 @@
               </select>
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="bookAvailable" name="available" checked>
+              <input class="form-check-input" type="checkbox" id="bookAvailable" name="available" value="true" checked>
               <label class="form-check-label" for="bookAvailable">Disponible</label>
             </div>
 
@@ -69,11 +103,11 @@
             <div id="noFictionFields" class="hidden">
               <div class="mb-3">
                 <label for="bookThematic" class="form-label">Thematic Area</label>
-                <input type="text" class="form-control" id="bookThematic" name="thematic_area">
+                <input type="text" class="form-control" id="bookThematic" name="thematicArea">
               </div>
               <div class="mb-3">
                 <label for="bookAudience" class="form-label">Target Audience</label>
-                <input type="text" class="form-control" id="bookAudience" name="target_audience">
+                <input type="text" class="form-control" id="bookAudience" name="targetAudience">
               </div>
             </div>
 
@@ -84,7 +118,7 @@
                 <input type="text" class="form-control" id="bookField" name="field">
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="bookLendable" name="lendable">
+                <input class="form-check-input" type="checkbox" id="bookLendable" name="lendable" value="true">
                 <label class="form-check-label" for="bookLendable">Lendable</label>
               </div>
             </div>
