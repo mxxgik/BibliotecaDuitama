@@ -191,17 +191,6 @@ public class BookManager {
         }
     }
 
-
-    // public String getJson(int id){
-
-    //     for (Book book : books) {
-    //         if (book.getId() == id) {
-    //             return gs
-    //         }
-    //     }
-
-    // }
-
     
     
 }
