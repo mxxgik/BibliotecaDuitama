@@ -119,6 +119,13 @@
     margin-right: 6px;
   }
 
+  .btn-link:active,
+  .btn-link.active {
+    color: #9db4c0 !important;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
 </style>
 
 <body>
