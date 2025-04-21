@@ -1,0 +1,49 @@
+.btn-primary {
+    background-color: #6b7c94 !important; /* lighter, more blueish, cool-toned */
+    border-color: #6b7c94 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: #7f91ab !important; /* lighter blue accent */
+    border-color: #7f91ab !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+/* Override Bootstrap .btn-danger */
+.btn-danger {
+    background-color: #501820 !important;
+    border-color: #501820 !important;
+    color: #ffffff !important;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.show > .btn-danger.dropdown-toggle {
+    background-color: #381820 !important;
+    border-color: #381820 !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.btn-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  color: white;
+}

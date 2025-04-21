@@ -1,0 +1,33 @@
+footer {
+    background-color: #181818;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-img-wrapper {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .footer-img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  i{
+    margin-right: 6px;
+  }
