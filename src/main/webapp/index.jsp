@@ -114,7 +114,11 @@
     height: auto;
     display: block;
   }
-  
+
+  i{
+    margin-right: 6px;
+  }
+
 </style>
 
 <body>
@@ -141,10 +145,10 @@
   <div class="content">
     <div class = "content-inner">
       <h1>Biblioteca de Duitama</h1>
-      <a class="btn btn-link" href="books/listBooks.jsp">Libros</a>
-      <a class="btn btn-link" href="books/addBook.jsp">Agregar Libro</a>
-      <a class="btn btn-link" href="loans/listLoans.jsp">Prestamos</a>
-      <a class="btn btn-link" href="loans/addLoan.jsp">Agregar Prestamo</a>
+      <a class="btn btn-link" href="books/listBooks.jsp"> <i class="fa-solid fa-list"></i> Libros</a>
+      <a class="btn btn-link" href="books/addBook.jsp"> <i class="fa-solid fa-plus"></i> Agregar Libro</a>
+      <a class="btn btn-link" href="loans/listLoans.jsp"> <i class="fa-solid fa-list"></i> Prestamos</a>
+      <a class="btn btn-link" href="loans/addLoan.jsp"> <i class="fa-solid fa-plus"></i> Agregar Prestamo</a>
     </div>
   </div>
 </body>
