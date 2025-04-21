@@ -8,11 +8,23 @@
 
 
 <head>
-
-</head>
+    <style>
+    .item-display {
+      background-color: #381820;
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      min-width: 300px;
+    }
+  </style>
 
 <body>
-     
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div id="itemCard" class="item-display text-center">
+      <h3 id="itemTitle"></h3>
+      <p id="itemDescription"></p>
+    </div>
+  </div>
 </body>
 
 
