@@ -1,0 +1,21 @@
+<jsp:include page="../shared/header.jsp" />
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="biblioteca.duitama.model.*"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.google.gson.*"%>
+
+<jsp:include page="../shared/navbar.jsp" />
+
+
+<head>
+
+</head>
+
+<body>
+     
+</body>
+
+
+<jsp:include page="../shared/infoFooter.jsp" />
+
+<jsp:include page="../shared/footer.jsp" />
