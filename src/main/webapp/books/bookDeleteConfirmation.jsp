@@ -17,7 +17,11 @@
       min-width: 300px;
     }
   </style>
+  
+  <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/04/21/18/20250421182532-6D8NQ7D3.js"></script>
 
+</head>
 <body>
     <div class="container vh-100 d-flex justify-content-center align-items-center">
     <div id="itemCard" class="item-display text-center">

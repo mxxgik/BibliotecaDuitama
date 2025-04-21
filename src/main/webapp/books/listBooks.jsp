@@ -6,6 +6,10 @@
 
 <jsp:include page="../shared/navbar.jsp" />
 
+<script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/04/21/18/20250421182532-6D8NQ7D3.js"></script>
+
+
 <body>
     <div class="container">
             <button class="btn btn-primary m-2" id="showAllBooks"><i class="fa-solid fa-book"></i> Todos </button>
