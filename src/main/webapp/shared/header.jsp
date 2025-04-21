@@ -23,7 +23,11 @@
     body {
         background-color: #404048;
         color: #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
+        
 </style>
 
 <!DOCTYPE html>

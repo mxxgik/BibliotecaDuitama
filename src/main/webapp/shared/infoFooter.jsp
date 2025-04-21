@@ -1,6 +1,4 @@
-<br>
-<br>
-<br>
+
 <footer>
   <p> <i class="fa-solid fa-envelope"></i> Contacto: <a href="mailto:contacto@bibliotecaduitama.gov"> contacto@bibliotecaduitama.gov </a> </p>
   <p> <a href="https://github.com/mxxgik/BibliotecaDuitama"> <i class="fa-brands fa-github"></i> GitHub</a> </p>
