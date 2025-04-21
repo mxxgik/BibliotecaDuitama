@@ -4,28 +4,7 @@
 <%@page import="com.google.gson.*"%>
 <jsp:include page="../shared/header.jsp" />
 
-
-<head>
-    <style>
-        body {
-            background-color: #404048;
-            color: #e0e0e0;
-        }
-    </style>
-    
-</head>
-
-<header class="bg-dark-custom py-3">
-  <div class="container d-flex justify-content-center align-items-center">
-    <nav class="d-flex gap-4">
-      <a class="btn btn-link" href="../index.jsp"> <i class="fa-solid fa-house"></i> Inicio </a>
-      <a class="btn btn-link" href="../books/listBooks.jsp"> <i class="fa-solid fa-list"></i> Libros</a>
-      <a class="btn btn-link" href="../books/addBook.jsp"> <i class="fa-solid fa-plus"></i> Agregar Libro</a>
-      <a class="btn btn-link" href="../loans/listLoans.jsp"> <i class="fa-solid fa-list"></i> Prestamos</a>
-      <a class="btn btn-link" href="../loans/addLoan.jsp"> <i class="fa-solid fa-plus"></i> Agregar Prestamo</a>
-    </nav>
-  </div>
-</header>
+<jsp:include page="../shared/navbar.jsp" />
 
 <body>
     <div class="container">
@@ -221,12 +200,6 @@
     </div>
 </body>
 
-<footer>
-  <p> <i class="fa-solid fa-envelope"></i> Contacto: <a href="mailto:contacto@bibliotecaduitama.gov"> contacto@bibliotecaduitama.gov </a> </p>
-  <p> <a href="https://github.com/mxxgik/BibliotecaDuitama"> <i class="fa-brands fa-github"></i> GitHub Libros</a> </p>
-  <div class="footer-img-wrapper">
-    <img src="sources/481217677_1152962422899429_7908241231012335867_n.jpg" alt="Logo Duitama">
-  </div>
-</footer>
+<jsp:include page="../shared/infoFooter.jsp" />
 
 <jsp:include page="../shared/footer.jsp" />
