@@ -90,19 +90,22 @@
                     </tbody>
                 </table>
             </div>
-            
+
             <% 
-                BookManager manager = BookManager.getInstance();
-                ArrayList<Book> books = manager.getAllBooks();
-                Gson gson = new Gson();
-                String jsonBooks = gson.toJson(books);
+                    BookManager manager = BookManager.getInstance();
+                    ArrayList<Book> books = manager.getAllBooks();
+                    Gson gson = new Gson();
+                    String jsonBooks = gson.toJson(books);
             %>
+
             <script type="text/javascript">
                 $(document).ready(function () {
-                    const books = <%= jsonBooks %>;
-                    const fictionBooks = <%= gson.toJson(manager.getBooksByType("Ficcion"))%>
-                    const notFictionBooks = <%= gson.toJson(manager.getBooksByType("No Ficcion"))%>
-                    const referenceBooks = <%= gson.toJson(manager.getBooksByType("Referencia"))%>
+                    
+                    var books = <%= jsonBooks %>;
+                    var fictionBooks = <%= gson.toJson(manager.getBooksByType("Ficcion"))%>
+                    var notFictionBooks = <%= gson.toJson(manager.getBooksByType("No Ficcion"))%>
+                    var referenceBooks = <%= gson.toJson(manager.getBooksByType("Referencia"))%>
+
                     $('#allBooksTable').DataTable({
                         data: books,
                         columns: [

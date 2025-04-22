@@ -3,6 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="biblioteca.duitama.model.*"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 <%@page import="com.google.gson.*"%>
 
@@ -37,11 +38,12 @@
   }
 
   Book book = manager.getBookById(bookId);
+  
   if(book == null){
       response.sendRedirect("listBooks.jsp");
       return;
   }
-  
+
   String field = "";
   boolean lendable = false;
   List<String> awards = new ArrayList<>();
@@ -66,15 +68,32 @@
   }
 
   if(request.getMethod().equals("POST")){
-    String name = request.getParameter("name");
-    String author = request.getParameter("author");
-    String type = request.getParameter("type");
-    Boolean available = Boolean.parseBoolean(request.getParameter("available"));
-    Book newBook = null;
-    int id = manager.getNextBookId();
+    
+
+    if(book instanceof FictionBook){
+      awards = Arrays.asList(request.getParameter("awards").split("\\s*,\\s*"));
+      FictionBook fictionBook = (FictionBook)book;
+      fictionBook.setName(request.getParameter("name"));
+      fictionBook.setAuthor(request.getParameter("author"));
+      fictionBook.setType(request.getParameter("type"));
+      fictionBook.setAvailable(Boolean.parseBoolean(request.getParameter("available")));
+      fictionBook.setGenre(request.getParameter("genre"));
+      fictionBook.setAwards(awards); 
+      manager.updateBook(fictionBook);
+
+    }else if(book instanceof ReferenceBook){
+        
+
+    }else if(book instanceof NotFictionBook){
+        
+
+    }
+
   }
 
 %>
+
+
 
 <body>
      <div class = "container">
@@ -98,8 +117,8 @@
               </select>
             </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="bookAvailable" name="available">
-              <label class="form-check-label" for="bookAvailable" <%= book.isAvailable() ? "checked" : ""%> >Available</label>
+              <input class="form-check-input" type="checkbox" id="bookAvailable" name="available" <%= book.isAvailable() ? "checked" : ""%>>
+              <label class="form-check-label" for="bookAvailable" >Available</label>
             </div>
 
             <!-- Fiction book fields -->
@@ -118,11 +137,11 @@
             <div id="noFictionFields" class="hidden">
               <div class="mb-3">
                 <label for="bookThematic" class="form-label">Area tematica</label>
-                <input type="text" class="form-control" id="bookThematic" name="thematic_area" value="<%= thematicArea%>">
+                <input type="text" class="form-control" id="bookThematic" name="thematicArea" value="<%= thematicArea%>">
               </div>
               <div class="mb-3">
                 <label for="bookAudience" class="form-label">Publico objetivo</label>
-                <input type="text" class="form-control" id="bookAudience" name="target_audience" value="<%= targetAudience%>">
+                <input type="text" class="form-control" id="bookAudience" name="targetAudience" value="<%= targetAudience%>">
               </div>
             </div>
 
