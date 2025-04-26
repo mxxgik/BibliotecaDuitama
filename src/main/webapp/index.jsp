@@ -39,7 +39,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
     background-color: #404048;
     opacity: 0.5;
